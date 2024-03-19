@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   # Routes for the Question resource:
+  
+  #Homepage
+  get("/", { :controller => "quizzes", :action => "index" })
 
   # CREATE
   post("/insert_question", { :controller => "questions", :action => "create" })

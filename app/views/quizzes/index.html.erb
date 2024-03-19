@@ -20,15 +20,7 @@
           Topic
         </label>
 
-        <textarea id="topic_box" name="query_topic" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="questions_count_box">
-          Questions count
-        </label>
-
-        <input type="text" id="questions_count_box" name="query_questions_count">
+        <textarea id="topic_box" name="query_topic" rows="1"></textarea>
       </div>
 
       <button>
@@ -52,15 +44,7 @@
         </th>
 
         <th>
-          Questions count
-        </th>
-
-        <th>
           Created at
-        </th>
-
-        <th>
-          Updated at
         </th>
 
         <th>
@@ -78,14 +62,7 @@
         </td>
 
         <td>
-          <%= a_quiz.questions_count %>
-        </td>
-
-        <td>
           <%= time_ago_in_words(a_quiz.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_quiz.updated_at) %> ago
         </td>
 
         <td>
