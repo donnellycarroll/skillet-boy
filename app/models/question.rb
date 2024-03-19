@@ -5,7 +5,6 @@
 #  id           :integer          not null, primary key
 #  question     :text
 #  tutor_answer :string
-#  user_answer  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  quiz_id      :integer

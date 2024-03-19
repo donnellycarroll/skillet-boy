@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_19_150443) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_19_162212) do
   create_table "questions", force: :cascade do |t|
     t.text "question"
-    t.string "user_answer"
     t.string "tutor_answer"
     t.integer "quiz_id"
     t.datetime "created_at", null: false
