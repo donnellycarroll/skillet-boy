@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all questions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new question
+    </h2>
+
+    <form action="/insert_question" method="post">
+      <div>
+        <label for="question_box">
+          Question
+        </label>
+
+        <textarea id="question_box" name="query_question" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="user_answer_box">
+          User answer
+        </label>
+
+        <input type="text" id="user_answer_box" name="query_user_answer">
+      </div>
+
+      <div>
+        <label for="tutor_answer_box">
+          Tutor answer
+        </label>
+
+        <input type="text" id="tutor_answer_box" name="query_tutor_answer">
+      </div>
+
+      <div>
+        <label for="quiz_id_box">
+          Quiz
+        </label>
+
+        <input type="text" id="quiz_id_box" name="query_quiz_id">
+      </div>
+
+      <button>
+        Create question
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Question
+        </th>
+
+        <th>
+          User answer
+        </th>
+
+        <th>
+          Tutor answer
+        </th>
+
+        <th>
+          Quiz
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_questions.each do |a_question| %>
+      <tr>
+        <td>
+          <%= a_question.id %>
+        </td>
+
+        <td>
+          <%= a_question.question %>
+        </td>
+
+        <td>
+          <%= a_question.user_answer %>
+        </td>
+
+        <td>
+          <%= a_question.tutor_answer %>
+        </td>
+
+        <td>
+          <%= a_question.quiz_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_question.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_question.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/questions/<%= a_question.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

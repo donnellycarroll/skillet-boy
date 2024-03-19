@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Question #<%= @the_question.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/questions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_question/<%= @the_question.id %>">
+          Delete question
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Question
+      </dt>
+      <dd>
+        <%= @the_question.question %>
+      </dd>
+
+      <dt>
+        User answer
+      </dt>
+      <dd>
+        <%= @the_question.user_answer %>
+      </dd>
+
+      <dt>
+        Tutor answer
+      </dt>
+      <dd>
+        <%= @the_question.tutor_answer %>
+      </dd>
+
+      <dt>
+        Quiz
+      </dt>
+      <dd>
+        <%= @the_question.quiz_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_question.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_question.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit question
+    </h2>
+
+    <form action="/modify_question/<%= @the_question.id %>"  method="post" >
+      <div>
+        <label for="question_box">
+          Question
+        </label>
+
+        <textarea id="question_box" name="query_question"><%= @the_question.question %></textarea>
+      </div>
+
+      <div>
+        <label for="user_answer_box">
+          User answer
+        </label>
+
+        <input type="text" id="user_answer_box" name="query_user_answer" value="<%= @the_question.user_answer %>">
+      </div>
+
+      <div>
+        <label for="tutor_answer_box">
+          Tutor answer
+        </label>
+
+        <input type="text" id="tutor_answer_box" name="query_tutor_answer" value="<%= @the_question.tutor_answer %>">
+      </div>
+
+      <div>
+        <label for="quiz_id_box">
+          Quiz
+        </label>
+
+        <input type="text" id="quiz_id_box" name="query_quiz_id" value="<%= @the_question.quiz_id %>">
+      </div>
+
+      <button>
+        Update question
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

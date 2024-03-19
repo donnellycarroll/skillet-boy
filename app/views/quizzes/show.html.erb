@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Quiz #<%= @the_quiz.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/quizzes">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_quiz/<%= @the_quiz.id %>">
+          Delete quiz
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Topic
+      </dt>
+      <dd>
+        <%= @the_quiz.topic %>
+      </dd>
+
+      <dt>
+        Questions count
+      </dt>
+      <dd>
+        <%= @the_quiz.questions_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_quiz.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_quiz.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit quiz
+    </h2>
+
+    <form action="/modify_quiz/<%= @the_quiz.id %>"  method="post" >
+      <div>
+        <label for="topic_box">
+          Topic
+        </label>
+
+        <textarea id="topic_box" name="query_topic"><%= @the_quiz.topic %></textarea>
+      </div>
+
+      <div>
+        <label for="questions_count_box">
+          Questions count
+        </label>
+
+        <input type="text" id="questions_count_box" name="query_questions_count" value="<%= @the_quiz.questions_count %>">
+      </div>
+
+      <button>
+        Update quiz
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
