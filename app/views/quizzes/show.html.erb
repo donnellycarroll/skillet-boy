@@ -11,76 +11,47 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_quiz/<%= @the_quiz.id %>">
-          Delete quiz
-        </a>
-      </div>
+      <dl>
+        <dt>
+          Topic
+        </dt>
+        <dd>
+          <%= @the_quiz.topic %>
+        </dd>
+
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_quiz.created_at) %> ago
+        </dd>
+
+      </dl>
     </div>
-
-    <dl>
-      <dt>
-        Topic
-      </dt>
-      <dd>
-        <%= @the_quiz.topic %>
-      </dd>
-
-      <dt>
-        Questions count
-      </dt>
-      <dd>
-        <%= @the_quiz.questions_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_quiz.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_quiz.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
+
 </div>
 
 <hr>
-
 
 <div>
   <div>
-    <h2>
-      Edit quiz
-    </h2>
+    <dl>
+      <dt>system</dt>
+      <dd>
+        <p>You are a <%= @the_quiz.topic %> tutor. Ask the user five questions to assess their <%= @the_quiz.topic %> proficiency. Start with an easy question. After each answer, increase or decrease the difficulty of the next question based on how well the user answered.</p>
 
-    <form action="/modify_quiz/<%= @the_quiz.id %>"  method="post" >
-      <div>
-        <label for="topic_box">
-          Topic
-        </label>
+        <p>      In the end, provide a score between 0 and 10.</p>
+      </dd>
+      <dt>user</dt>
+      <dd>
+        <p>Can you assess my <%= @the_quiz.topic %> proficiency?</p>
+      </dd>
+      <dt>assistant</dt>
+      <dd>
+        <p>Absolutely, let's begin!</p>
+      </dd>
+    </dl>
 
-        <textarea id="topic_box" name="query_topic"><%= @the_quiz.topic %></textarea>
-      </div>
-
-      <div>
-        <label for="questions_count_box">
-          Questions count
-        </label>
-
-        <input type="text" id="questions_count_box" name="query_questions_count" value="<%= @the_quiz.questions_count %>">
-      </div>
-
-      <button>
-        Update quiz
-      </button>
-    </form>
   </div>
 </div>
-
-<hr>
